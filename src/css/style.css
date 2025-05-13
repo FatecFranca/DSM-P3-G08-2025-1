@@ -1,0 +1,742 @@
+:root {
+    /* Light mode variables */
+    --bg-color: #ffffff;
+    --text-color: #b98080;
+    --primary-color: #4D2BC9;
+    --primary-color-rgb: 77, 43, 201;
+    --secondary-color: #6c757d;
+    --card-bg: #f8f9fa;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --icon-filter: none;
+    --primary: #542e92;
+    --secondary: #a29bfe;
+    --accent: #fd79a8;
+    --header-bg: #65008d;
+    --footer-bg: #2d3436;
+    --meta-color: #666;
+    --success: #00b894;
+    --border-box: 0 12px 28px 0 rgba(0, 0, 0, 0.1),
+    0 2px 4px 0 rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] {
+    /* Dark mode variables */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #4D2BC9;
+    --primary-color-rgb: 77, 43, 201;
+    --secondary-color: #adb5bd;
+    --card-bg: #1e1e1e;
+    --border-color: #2d2d2d;
+    --hover-color: #2d2d2d;
+    --icon-filter: invert(1);
+    --primary: #8675e9;
+    --secondary: #b0a6fe;
+    --accent: #ff82b2;
+    --header-bg: #16213e;
+    --footer-bg: #0f0f1a;
+    --meta-color: #aaa;
+    --success: #26c49f;
+    --border-box: 0 12px 28px 0 rgba(212, 212, 212, 0.1),
+    0 2px 4px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 0.3;
+    margin: 0 2rem;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 2px solid white;
+}
+
+.theme-toggle {
+    margin-left: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 35px;
+    height: 35px;
+}
+
+.main-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0;
+    gap: 2rem;
+    position: relative;
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    margin-left: 2rem;
+    background: none;
+}
+
+.games-list {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: var(--border-box);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.games-list::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+@keyframes borderFade {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.games-list h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.games-list ul {
+    list-style: none;
+}
+
+.games-list ul li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.games-list ul li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+.games-list ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.games-list ul li a:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.filters {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: var(--border-box);
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filters h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.filter-group {
+    margin-bottom: 1rem;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.filter-group button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-group button:hover {
+    background-color: var(--secondary);
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding-right: 2rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--border-box);
+}
+
+.content-header h2 {
+    color: var(--primary);
+}
+
+.view-options {
+    display: flex;
+    align-items: center;
+}
+
+.view-options select {
+    margin-left: 1rem;
+    padding: 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.create-post {
+    padding: 0.7rem 1.5rem;
+    background-color: #432BAA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+.create-post:hover {
+    background-color: #e84393;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.post-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: var(--border-box);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1rem;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.game-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.game-info span {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.post-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.post-description {
+    color: var(--meta-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.post-meta div {
+    display: flex;
+    align-items: center;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+}
+
+.player-info img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.skill-level {
+    display: flex;
+    align-items: center;
+    color: var(--success);
+}
+
+.footer {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    transition: all 0.3s ease;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-links ul {
+    display: flex;
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 0 1rem;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--accent);
+}
+
+.footer-copy {
+    margin-top: 1.5rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        margin-left: 0;
+        margin-bottom: 2rem;
+    }
+
+    .main-content {
+        padding-right: 0;
+    }
+
+    .content-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .view-options {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 0.5rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+.login-box {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.login-subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-form label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.login-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.social-login {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.social-login p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.social-button:hover {
+    background-color: var(--hover-color);
+}
+
+.social-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.register-link {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    opacity: 0.9;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.profile-content:hover {
+    opacity: 0.8;
+}
+

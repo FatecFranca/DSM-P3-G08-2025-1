@@ -1,0 +1,328 @@
+:root {
+    /* Light mode variables */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #4D2BC9;
+    --secondary-color: #6c757d;
+    --card-bg: #f8f9fa;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --icon-filter: none;
+    --hero-gradient: linear-gradient(to top right, #3722C3 0%, #6B51D2 64%, #9A6EFF 100%);
+}
+
+[data-theme="dark"] {
+    /* Dark mode variables */
+    --bg-color: #0E0E1A;
+    --text-color: #ffffff;
+    --primary-color: #4D2BC9;
+    --secondary-color: #adb5bd;
+    --card-bg: #1e1e1e;
+    --border-color: #2d2d2d;
+    --hover-color: #2d2d2d;
+    --icon-filter: invert(1);
+    --hero-gradient: linear-gradient(to top right, #070311 0%, #270C65 55%, #321B88 75%, #3B2BA8 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--primary-color);
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo span, .footer-logo span {
+    font-size: 40px;
+    color: #4D2BC9;
+    margin-right: 10px;
+}
+
+.logo, .footer-logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 20px;
+}
+
+.nav a {
+    margin: 0 10px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.actions button img {
+    width: 24px;
+    height: 24px;
+    filter: var(--icon-filter);
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: calc(100vh - 160px);
+}
+
+.hero h2 {
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.cadastro-box {
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cadastroForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #5C3FD1;
+    box-shadow: 0 0 0 2px rgba(92, 63, 209, 0.1);
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+.upload-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5C3FD1;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #4930A8;
+}
+
+.upload-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.cadastro-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5C3FD1;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cadastro-button:hover {
+    background-color: #4930A8;
+}
+
+/* Form validation styles */
+.form-group input:invalid {
+    border-color: #ff4444;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .cadastro-box {
+        padding: 24px;
+    }
+    
+    .hero {
+        padding: 20px;
+    }
+}
+
+.popular-games {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+}
+
+.popular-games h2 {
+    color: var(--primary-color);
+}
+
+.popular-games .games-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.popular-games img {
+    width: 379px;
+    height: 212px;
+    border-radius: 10px;
+    background-color: var(--card-bg);
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-top: 1px solid var(--primary-color);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo span { 
+    font-size: 40px;
+    color: #4D2BC9;
+    margin-left: 10px;
+}
+
+.footer-nav a {
+    margin: 0 10px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .actions {
+        margin-left: 0;
+    }
+
+    .popular-games img {
+        width: 100%;
+        height: auto;
+        max-width: 379px;
+    }
+}
