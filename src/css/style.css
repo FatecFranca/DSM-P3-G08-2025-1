@@ -1,5 +1,4 @@
 :root {
-    /* Light mode variables */
     --bg-color: #ffffff;
     --text-color: #b98080;
     --primary-color: #4D2BC9;
@@ -22,7 +21,6 @@
 }
 
 [data-theme="dark"] {
-    /* Dark mode variables */
     --bg-color: #121212;
     --text-color: #ffffff;
     --primary-color: #4D2BC9;
