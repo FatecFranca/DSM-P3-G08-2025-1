@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light-mode">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="/">
+            <div class="logo">
+                <span>duozinho</span>
+                <img src="/images/logo.svg" alt="Logo" class="logo-icon">
+            </div>
+        </a>
+        <nav>
+            <div class="actions">
+                <button class="dark-mode-toggle">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Cadastro</h2>
+            <div class="cadastro-box">
+                <form id="cadastroForm">
+                    <div class="form-group">
+                        <label>Foto de perfil*</label>
+                        <label for="profilePicture" class="upload-button">
+                            <span class="material-symbols-outlined">upload</span>
+                        </label>
+                        <input type="file" id="profilePicture" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Nome de usuário*</label>
+                        <input type="text" id="username" placeholder="ExemploDeUsuario123" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail*</label>
+                        <input type="email" id="email" placeholder="ExemploDeEmail@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha*</label>
+                        <div class="password-input-container">
+                            <input type="password" id="password" placeholder="ExemploDeSenha" required>
+                            <button type="button" class="toggle-password">
+                                <span class="material-symbols-outlined">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="cadastro-button">Cadastrar</button>
+
+                    <p>Tem uma conta? <a href="/login">Faça login</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="/">
+            <div class="logo">
+                <span>duozinho</span>
+                <img src="/images/logo.svg" alt="Logo" class="logo-icon">
+            </div>
+        </a>
+        <nav class="footer-nav">
+            <a href="/contato">Contato</a>
+            <a href="#">Termos de Uso</a>
+            <a href="/sobre">Sobre</a>
+        </nav>
+        <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
+    </footer>
+
+    <!-- <script src="/js/script.js"></script> -->
+</body>
+
+</html>

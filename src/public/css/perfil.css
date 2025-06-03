@@ -1,0 +1,161 @@
+main {
+    padding: 110px 50px 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile {
+    align-items: center;
+    display: flex;
+    gap: 25px;
+    font-size: 22px;
+    color: var(--dark-purple);
+}
+
+.profile img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-actions button {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    color: var(--dark-purple);
+    align-items: center;
+    gap: 10px;
+}
+
+.line {
+  flex: 1;
+  height: 0.5px;
+  background-color: var(--dark-purple);
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.post-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: var(--border-shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1rem;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.game-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.game-info span {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.post-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.post-description {
+    color: var(--meta-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.post-meta div {
+    display: flex;
+    align-items: center;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+}
+
+.player-info img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.skill-level {
+    display: flex;
+    align-items: center;
+    color: var(--success);
+}

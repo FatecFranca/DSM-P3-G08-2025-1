@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
-    /* Light mode variables */
     --bg-color: #ffffff;
     --text-color: #333333;
     --primary-color: #4D2BC9;
+    --dark-purple: #432BAA;
     --secondary-color: #6c757d;
     --card-bg: #f8f9fa;
     --border-color: #dee2e6;
     --hover-color: #e9ecef;
     --icon-filter: none;
+    --success: #00b894;
     --hero-gradient: linear-gradient(to top right, #3722C3 0%, #6B51D2 64%, #9A6EFF 100%);
+    --hover-button: #2b1d7a;
+    --border-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 [data-theme="dark"] {
-    /* Dark mode variables */
     --bg-color: #0E0E1A;
     --text-color: #ffffff;
     --primary-color: #4D2BC9;
@@ -20,93 +24,112 @@
     --card-bg: #1e1e1e;
     --border-color: #2d2d2d;
     --hover-color: #2d2d2d;
-    --icon-filter: invert(1);
+    --icon-filter: invert(1) brightness(2) contrast(1.2);
+    --success: #00b894;
     --hero-gradient: linear-gradient(to top right, #070311 0%, #270C65 55%, #321B88 75%, #3B2BA8 100%);
+    --hover-button: #2b1d7a;
+    --border-shadow: 0 0 10px rgba(212, 212, 212, 0.1); 
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    outline: none;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    background-color: var(--bg-color);
     color: var(--text-color);
+    background-color: var(--bg-color);
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 25px;
     background-color: var(--bg-color);
     color: var(--text-color);
-    border-bottom: 1px solid var(--primary-color);
     flex-wrap: wrap;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--border-shadow);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    margin-right: auto;
+    justify-content: center;
+    gap: 10px;
 }
 
 .logo-icon {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+    width: 45px;
+    height: 35px;
 }
 
-.logo span, .footer-logo span {
-    font-size: 40px;
-    color: #4D2BC9;
-    margin-right: 10px;
+.logo span {
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--primary-color);
 }
 
-.logo, .footer-logo {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-}
-
-.nav {
+nav {
     display: flex;
     justify-content: flex-end;
     flex: 1;
     gap: 20px;
+    align-items: center;
 }
 
-.nav a {
+nav a {
+    font-weight: 600;
     margin: 0 10px;
     color: var(--text-color);
     text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+nav a:hover,
+nav img:hover {
+    color: var(--primary-color);
 }
 
 .actions {
     display: flex;
-    gap: 15px;
-    margin-left: 20px;
+    gap: 20px;
+    align-items: center;
 }
 
 .actions button {
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 20px;
     cursor: pointer;
-    padding: 5px;
 }
 
-.actions button img {
-    width: 24px;
-    height: 24px;
-    filter: var(--icon-filter);
+.actions button span,
+.actions a span {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    color: var(--text-color);
+    transition: color 0.5s ease;
+}
+
+.actions button span:hover,
+.actions a span:hover {
+    color: var(--primary-color);
+}
+
+main {
+    padding-top: 65px;
 }
 
 .hero {
@@ -119,27 +142,31 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 18px;
     max-width: 600px;
 }
 
 .hero .cta-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #432BAA;
+    font-size: 14px;
+    padding: 12px 30px;
+    background-color: var(--dark-purple);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.hero .cta-btn:hover {
+    background-color: #3821a0;
 }
 
 .popular-games {
@@ -149,13 +176,15 @@ body {
 }
 
 .popular-games h2 {
+    font-size: 26px;
     color: var(--primary-color);
+    margin-bottom: 30px;
 }
 
 .popular-games .games-list {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 35px;
     margin-top: 20px;
 }
 
@@ -164,40 +193,38 @@ body {
     height: 212px;
     border-radius: 10px;
     background-color: var(--card-bg);
-    padding: 10px;
+    padding: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     object-fit: cover;
 }
 
-.footer {
+footer {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 20px;
     background-color: var(--bg-color);
     color: var(--text-color);
-    border-top: 1px solid var(--primary-color);
+    box-shadow: var(--border-shadow);
+    gap: 15px;
 }
 
-.footer-logo {
+.footer-nav {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.footer-logo span {
-    font-size: 40px;
-    color: #4D2BC9;
-    margin-left: 10px;
-}
-
-.footer-nav a {
+    gap: 10px;
+    font-weight: 500;
     margin: 0 10px;
     color: var(--text-color);
     text-decoration: none;
+    justify-content: center;
+}
+
+footer p {
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
-    .header {
+    header {
         flex-direction: column;
         gap: 15px;
     }

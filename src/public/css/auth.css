@@ -1,0 +1,158 @@
+.hero h2 {
+    font-size: 32px;
+}
+
+.cadastro-box, .login-box {
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cadastroForm, #loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#cadastroForm p, #loginForm p {
+    font-size: 16px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+#cadastroForm p a, #loginForm p a {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--text-color);
+    box-shadow: 0 0 0 2px rgba(92, 63, 209, 0.1);
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+}
+
+.upload-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.cadastro-button, .upload-button, .login-button {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: center;
+}
+
+.cadastro-button:hover, .upload-button:hover, .login-button:hover {
+    background-color: var(--dark-purple);
+}
+
+.upload-button {
+    padding: 8px;
+}
+
+label .material-symbols-outlined {
+    color: #fff;
+}
+
+button .material-symbols-outlined {
+    color: var(--text-color);
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+}
+
+/* .form-group input:invalid {
+    border-color: #ff4444;
+} */
+
+@media (max-width: 768px) {
+    .cadastro-box {
+        padding: 24px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .actions {
+        margin-left: 0;
+    }
+}

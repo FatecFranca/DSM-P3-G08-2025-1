@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light-mode">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duozinho</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        .criadores {
+            justify-content: center;
+            display: flex;
+            margin: 30px 180px;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .criador {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+        }
+
+        .criador img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        .criador h3 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/">
+            <div class="logo">
+                <span>duozinho</span>
+                <img src="/images/logo.svg" alt="Logo" class="logo-icon">
+            </div>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/times">Times</a>
+            <a href="/jogadores">Jogadores</a>
+            <div class="actions">
+                <button class="notification-btn">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <a href="/perfil">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </a>
+                <button class="dark-mode-toggle">
+                    <span class="material-symbols-outlined">dark_mode</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Sobre Nós</h1>
+        <p>
+            Somos especialistas em jogos e comunidades de jogadores. Nosso objetivo é fornecer uma experiência única e
+            envolvente para todos os amantes de jogos.
+        </p>
+        <p>
+            Nossa equipe é composta por profissionais dedicados e apaixonados pelo mundo dos jogos. Trabalhamos
+            arduamente para garantir que cada usuário tenha a melhor experiência possível.
+        </p>
+        <p>
+            Se você gostou do que viu até agora, não se esqueça de nos seguir nas redes sociais para ficar por dentro de
+            todas as novidades.
+        </p>
+
+        <h2>CRIADORES DO PROJETO</h2>
+        <div class="criadores">
+            <div class="criador">
+                <img src="../img/gustavo.jpeg" alt="Gustavo Schizari Ferreira Filho">
+                <h3>Gustavo Schizari Ferreira Filho</h3>
+            </div>
+            <div class="criador">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHfW06GUBFytw/profile-displayphoto-shrink_200_200/B4DZawIAyRG8AY-/0/1746711613294?e=1754524800&v=beta&t=bwiXWWtroAIa220WS99x3SRvU3c0o--nUS4T66ljrFg"
+                    alt="Lívia Portela Ferreira">
+                <h3>Lívia Portela Ferreira</h3>
+            </div>
+            <div class="criador">
+                <img src="../img/clara.jpeg" alt="Maria Clara Cardoso Costa">
+                <h3>Maria Clara Cardoso Costa</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/">
+            <div class="logo">
+                <span>duozinho</span>
+                <img src="/images/logo.svg" alt="Logo" class="logo-icon">
+            </div>
+        </a>
+        <nav class="footer-nav">
+            <a href="#">Contato</a>
+            <a href="#">Termos de Uso</a>
+            <a href="/sobre">Sobre</a>
+        </nav>
+        <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
+    </footer>
+
+    <script src="/js/scriptTeste.js"></script>
+</body>
+
+</html>
