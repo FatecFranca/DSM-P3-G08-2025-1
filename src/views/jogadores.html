@@ -21,7 +21,6 @@
         </a>
         <nav>
             <a href="/">Home</a>
-            <a href="/times">Times</a>
             <a href="/jogadores">Jogadores</a>
             <div class="actions">
                 <button class="notification-btn">
@@ -67,7 +66,7 @@
                         <a href="jogo-dota2.html">Dota 2</a>
                     </li>
                     <li>
-                        <img src="/images/logos/overwatch-2.png" alt="Overwatch">
+                        <img src="/images/logos/overwatch2.png" alt="Overwatch">
                         <a href="jogo-overwatch.html">Overwatch 2</a>
                     </li>
                 </ul>
@@ -125,7 +124,104 @@
                     </select>
                 </div>
             </div>
+
+            <div class="posts-grid"></div>
         </main>
+    </div>
+
+    <div class="modal-overlay" id="createPostModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Criar Novo Anúncio</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="postTitle">Título do Anúncio*</label>
+                        <input type="text" id="postTitle" placeholder="Ex: Procuro time para competição" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gameName">Jogo*</label>
+                            <select id="gameName" required>
+                                <option value="">Selecione um jogo</option>
+                                <option value="cs2">Counter Strike 2</option>
+                                <option value="lol">League of Legends</option>
+                                <option value="valorant">Valorant</option>
+                                <option value="apex">Apex Legends</option>
+                                <option value="fortnite">Fortnite</option>
+                                <option value="dota2">Dota 2</option>
+                                <option value="overwatch">Overwatch 2</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skillLevel">Nível de Habilidade*</label>
+                            <select id="skillLevel" required>
+                                <option value="">Selecione um nível</option>
+                                <option value="beginner">Iniciante</option>
+                                <option value="intermediate">Intermediário</option>
+                                <option value="advanced">Avançado</option>
+                                <option value="pro">Profissional</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="timeAvailable">Horário Disponível*</label>
+                            <select id="timeAvailable" required>
+                                <option value="">Selecione um horário</option>
+                                <option value="morning">Manhã</option>
+                                <option value="afternoon">Tarde</option>
+                                <option value="night">Noite</option>
+                                <option value="late-night">Madrugada</option>
+                                <option value="flexible">Flexível</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postDescription">Descrição*</label>
+                        <textarea id="postDescription" rows="4" placeholder="Descreva o que você está procurando..."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tags (Opcional)</label>
+                        <div class="tags-input-container">
+                            <span class="tag">Competitivo <span class="tag-close">×</span></span>
+                            <input type="text" class="tags-input" placeholder="Adicione tags separadas por vírgula">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Imagem do Anúncio (Opcional)</label>
+                        <div class="file-input-container">
+                            <label class="file-input-label">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span>Arraste e solte uma imagem ou clique para selecionar</span>
+                                <input type="file" class="file-input" id="imageUpload" accept="image/*">
+                            </label>
+                            <img src="" class="file-preview" id="imagePreview">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton">Publicar Anúncio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -143,8 +239,10 @@
         <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/publicacoes.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/scriptTeste.js"></script>
+    <script src="/js/modal.js"></script>
 </body>
 
 </html>

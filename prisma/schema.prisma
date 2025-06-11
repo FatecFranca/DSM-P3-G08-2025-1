@@ -23,7 +23,6 @@ model PerfilDoJogo {
   jogador             Usuario       @relation("UsuarioPerfil", fields: [jogador_id], references: [id])
   jogo                Jogo          @relation("JogoPerfil", fields: [jogo_id], references: [id])
   publicacoes         Publicacao[]  @relation("PublicacaoPerfil")
-  timeIntegrantes     TimeIntegrante[] @relation("PerfilDoIntegrante")
 }
 
 model Usuario {
@@ -38,7 +37,6 @@ model Usuario {
   convites_enviados  Convite[]      @relation("Remetente")
   convites_recebidos Convite[]      @relation("Destinatario")
   publicacoes        Publicacao[]   @relation("PublicacaoAutor")
-  times_criados      Time[]         @relation("TimeCriador")
 }
 
 model Convite {
@@ -50,7 +48,6 @@ model Convite {
   time_id         String?   @db.ObjectId
   remetente       Usuario   @relation("Remetente", fields: [remetente_id], references: [id])
   destinatario    Usuario   @relation("Destinatario", fields: [destinatario_id], references: [id])
-  time            Time?     @relation("TimeConvite", fields: [time_id], references: [id])
 }
 
 model Publicacao {
@@ -69,25 +66,4 @@ model Jogo {
   nome      String
   genero    String
   perfis    PerfilDoJogo[] @relation("JogoPerfil")
-  times     Time[]         @relation("TimeJogo")
-}
-
-model Time {
-  id             String         @id @default(auto()) @map("_id") @db.ObjectId
-  nome           String
-  jogo_id        String         @db.ObjectId
-  criador_id     String         @db.ObjectId
-  data_criacao   DateTime
-  jogo           Jogo           @relation("TimeJogo", fields: [jogo_id], references: [id])
-  criador        Usuario        @relation("TimeCriador", fields: [criador_id], references: [id])
-  convites       Convite[]      @relation("TimeConvite")
-  timeIntegrantes TimeIntegrante[] @relation("TimeDoIntegrante")
-}
-
-model TimeIntegrante {
-  id         String      @id @default(auto()) @map("_id") @db.ObjectId
-  time_id    String      @db.ObjectId
-  perfil_id  String      @db.ObjectId
-  time       Time        @relation("TimeDoIntegrante", fields: [time_id], references: [id])
-  perfil     PerfilDoJogo @relation("PerfilDoIntegrante", fields: [perfil_id], references: [id])
 }

@@ -63,6 +63,7 @@
 }
 
 .toggle-password {
+    display: flex;
     position: absolute;
     right: 12px;
     top: 50%;
@@ -71,12 +72,6 @@
     border: none;
     cursor: pointer;
     padding: 0;
-}
-
-.toggle-password img {
-    width: 20px;
-    height: 20px;
-    opacity: 0.6;
 }
 
 .upload-icon {
@@ -115,17 +110,6 @@ label .material-symbols-outlined {
 button .material-symbols-outlined {
     color: var(--text-color);
 }
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-color);
-}
-
-/* .form-group input:invalid {
-    border-color: #ff4444;
-} */
 
 @media (max-width: 768px) {
     .cadastro-box {

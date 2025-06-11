@@ -151,14 +151,4 @@ $(document).ready(function () {
             }
         }
     });
-
-    // Toggle password visibility
-    $('.toggle-password').click(function () {
-        const passwordInput = $(this).siblings('input');
-        const icon = $(this).find('.material-symbols-outlined');
-        const isVisible = passwordInput.attr('type') === 'text';
-
-        passwordInput.attr('type', isVisible ? 'password' : 'text');
-        icon.text(isVisible ? 'visibility' : 'visibility_off');
-    });
 });
