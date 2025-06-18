@@ -5,7 +5,7 @@ const controller = {};
 
 controller.create = async function (req, res) {
     try {
-        const { titulo, autor_id, perfil_id, descricao, data_criacao } = req.body;
+        const { titulo, autor_id, perfil_id, descricao, horario_disponivel, nivel_desejado, data_criacao } = req.body;
 
         const dataPublicacao = data_criacao ? new Date(data_criacao) : new Date();
 
@@ -15,6 +15,8 @@ controller.create = async function (req, res) {
                 autor_id,
                 perfil_id,
                 descricao,
+                horario_disponivel,
+                nivel_desejado,
                 data_criacao: dataPublicacao
             },
         });
@@ -40,8 +42,8 @@ controller.retrieveOne = async function (req, res) {
 
 controller.retrieveAll = async function (req, res) {
     try {
-        const include = includeRelations(req.query, ['autor']);
-        console.log(include);
+        const include = includeRelations(req.query, ['autor', 'perfil']);
+        include.perfil = { ...include.perfil, include: { jogo: true } } || { include: { jogo: true } };
 
         const result = await prisma.publicacao.findMany({
             include,

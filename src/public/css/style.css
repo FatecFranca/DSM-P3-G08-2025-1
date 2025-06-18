@@ -67,7 +67,7 @@ nav ul li a:hover {
     height: fit-content;
     margin-left: 2rem;
     background: none;
-    padding-top: 4rem;
+    padding-top: 0;
 }
 
 .games-list {
@@ -229,11 +229,11 @@ nav ul li a:hover {
 
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--border-shadow);
 }
 
 .post-image {
-    height: 150px;
+    height: 180px;
     overflow: hidden;
 }
 
@@ -244,12 +244,20 @@ nav ul li a:hover {
 }
 
 .post-content {
-    padding: 1rem;
+    padding: 14px;
 }
 
 .post-content h3 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
+    font-weight: 600;
+}
+
+.post-content .horario {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--dark-purple);
 }
 
 .game-info {
@@ -272,9 +280,10 @@ nav ul li a:hover {
 
 .post-description {
     color: var(--meta-color);
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     font-size: 0.9rem;
     line-height: 1.4;
+    min-height: 60px;
 }
 
 .post-meta {
@@ -356,13 +365,24 @@ nav ul li a:hover {
 .logoJogo {
     align-items: center;
     display: flex;
-    gap: 10px;
+    gap: 6px;
     margin-bottom: 10px;
 }
 
 .logoJogo img {
     height: 20px;
     width: 20px;
+}
+
+.logoJogo h4 {
+    font-weight: 600;
+}
+
+.btnCriarPerfilDoJogo {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
 }
 
 /* Responsividade */
@@ -381,6 +401,7 @@ nav ul li a:hover {
 
     .main-content {
         padding-right: 0;
+        margin-top: -100px;
     }
 
     .content-header {

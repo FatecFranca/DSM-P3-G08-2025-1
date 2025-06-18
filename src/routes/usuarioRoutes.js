@@ -4,6 +4,7 @@ import controller from '../controllers/usuarioController.js'
 const router = express.Router()
 
 router.post('/', controller.create)
+router.post('/login', controller.login)
 router.get('/', controller.retrieveAll)
 router.get('/:id', controller.retrieveOne)
 router.put('/:id', controller.update)

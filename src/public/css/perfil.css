@@ -12,6 +12,13 @@ main {
     gap: 15px;
 }
 
+.profile-header p {
+    width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: justify;
+}
+
 .profile-info {
     display: flex;
     align-items: center;
@@ -58,12 +65,13 @@ main {
 }
 
 .line {
-  flex: 1;
-  height: 0.5px;
-  background-color: var(--dark-purple);
+    flex: 1;
+    height: 0.5px;
+    background-color: var(--dark-purple);
 }
 
-.posts-grid {
+.posts-grid,
+.profiles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
@@ -76,6 +84,7 @@ main {
     box-shadow: var(--border-shadow);
     overflow: hidden;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .post-card:hover {
@@ -158,4 +167,63 @@ main {
     display: flex;
     align-items: center;
     color: var(--success);
+}
+
+.logout:hover,
+.editarUsuario:hover {
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.post-actions {
+    top: 5px;
+    padding: 0px 5px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn,
+.delete-perfil-btn,
+.edit-btn,
+.edit-perfil-btn {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: var(--bg-color);
+    cursor: pointer;
+    z-index: 10;
+    padding: 4px;
+}
+
+.delete-btn:hover,
+.delete-perfil-btn:hover {
+    color: #e92828;
+}
+
+.edit-btn:hover, .edit-perfil-btn:hover {
+    color: var(--primary-color);
+}
+
+#editPerfilModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }

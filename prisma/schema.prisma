@@ -51,14 +51,16 @@ model Convite {
 }
 
 model Publicacao {
-  id            String        @id @default(auto()) @map("_id") @db.ObjectId
-  titulo        String
-  autor_id      String        @db.ObjectId
-  perfil_id     String        @db.ObjectId
-  descricao     String
-  data_criacao  DateTime
-  autor         Usuario       @relation("PublicacaoAutor", fields: [autor_id], references: [id])
-  perfil        PerfilDoJogo  @relation("PublicacaoPerfil", fields: [perfil_id], references: [id])
+  id                  String        @id @default(auto()) @map("_id") @db.ObjectId
+  titulo              String
+  autor_id            String        @db.ObjectId
+  perfil_id           String        @db.ObjectId
+  descricao           String
+  nivel_desejado      String
+  horario_disponivel  String
+  data_criacao        DateTime
+  autor               Usuario       @relation("PublicacaoAutor", fields: [autor_id], references: [id])
+  perfil              PerfilDoJogo  @relation("PublicacaoPerfil", fields: [perfil_id], references: [id])
 }
 
 model Jogo {

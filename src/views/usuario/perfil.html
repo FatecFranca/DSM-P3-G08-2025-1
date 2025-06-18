@@ -7,6 +7,8 @@
     <title>Perfil</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -35,76 +37,94 @@
             </div>
         </nav>
     </header>
-
+    
+    <div id="notification" class="notification hidden"></div>
+    
     <main>
-        <section class="profile-header">
-            <div class="profile-info">
-                <div class="profile">
-                    <img
-                        src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg">
-                    <h1>SnipeMaster</h1>
-                </div>
-
-                <div class="profile-actions">
-                    <button class="cta-button">
-                        <span class="material-symbols-outlined">edit</span>
-                    </button>
-                    <button class="cta-button">
-                        <span class="material-symbols-outlined">logout</span>
-                    </button>
-                </div>
-            </div>
-            <p>Apaixonado por games e sempre em busca de parcerias com jogadores que valorizem o trabalho em equipe e a boa comunicação. Gosto de jogar de forma estratégica, mas sem deixar a diversão de lado. Estou disponível das 19h às 23h e sempre aberto a montar duos ou times para partidas casuais ou ranqueadas. Bora jogar?</p>
-        </section>
-
-        <section class="profile-profiles">
+        <section class="profile-header"></section>
+        <section class="profile-perfis">
             <div class="title">
                 <h2>Perfis</h2>
                 <div class="line"></div>
+                <button type="button" class="btnCriarPerfilDoJogo">
+                    <span class="material-symbols-outlined">add</span>
+                </button>
             </div>
-            <div class="posts-grid">
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="/images/csss.png" alt="Counter Strike 2">
-                    </div>
-                    <div class="post-content">
-                        <h3>Procuro time competitivo</h3>
-                        <p class="post-description">Olá pessoal! Sou AWPer com mais de 5 anos de experiência em CS.
-                            Procuro time sério para competir em torneios nacionais.</p>
-                        <div class="post-meta">
-                            <div class="skill-level">
-                                <span>Nível: Avançado</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="profiles-grid"></div>
         </section>
-
         <section class="profile-posts">
             <div class="title">
                 <h2>Posts</h2>
                 <div class="line"></div>
             </div>
-            <div class="posts-grid">
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="/images/csss.png" alt="Counter Strike 2">
-                    </div>
-                    <div class="post-content">
-                        <h3>Procuro time competitivo</h3>
-                        <p class="post-description">Olá pessoal! Sou AWPer com mais de 5 anos de experiência em CS.
-                            Procuro time sério para competir em torneios nacionais.</p>
-                        <div class="post-meta">
-                            <div class="skill-level">
-                                <span>Nível: Avançado</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="posts-grid"></div>
         </section>
     </main>
+
+    <div class="modal-overlay" id="createPerfilDoJogoModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Criar Novo Perfil Do Jogo</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="perfilForm">
+                    <div class="form-group">
+                        <label for="nickname">Nickname*</label>
+                        <input type="text" id="nickname" placeholder="Ex: Gamer123" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personagemFavorito">Personagem Favorito</label>
+                        <input type="text" id="personagemFavorito" placeholder="Ex: Jett, Yasuo, etc.">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gameName">Jogo*</label>
+                            <select id="gameName" required>
+                                <option value="">Selecione um jogo</option>
+                                <option value="6850e16b50e2bead39b8d172">Counter Strike 2</option>
+                                <option value="683f434b02152892f034cd77">League of Legends</option>
+                                <option value="6850e17c50e2bead39b8d173">Valorant</option>
+                                <option value="6850e18b50e2bead39b8d174">Apex Legends</option>
+                                <option value="6850e19450e2bead39b8d175">Fortnite</option>
+                                <option value="6850e19d50e2bead39b8d176">Dota 2</option>
+                                <option value="6850e1a250e2bead39b8d177">Overwatch 2</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skillLevel">Nível de Habilidade*</label>
+                            <select id="skillLevel" required>
+                                <option value="">Selecione um nível</option>
+                                <option value="Iniciante">Iniciante</option>
+                                <option value="Intermediário">Intermediário</option>
+                                <option value="Avançado">Avançado</option>
+                                <option value="Profissional">Profissional</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="frequenciaJoga">Frequência de Jogo*</label>
+                        <select id="frequenciaJoga" required>
+                            <option value="">Selecione a frequência</option>
+                            <option value="Diariamente">Diariamente</option>
+                            <option value="Algumas vezes por semana">Algumas vezes por semana</option>
+                            <option value="Fins de semana">Fins de semana</option>
+                            <option value="Raramente">Raramente</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton">Publicar Anúncio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <a href="/">
@@ -121,7 +141,7 @@
         <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
     </footer>
 
-    <script src="/js/scriptTeste.js"></script>
+    <script src="/js/theme-toggle.js"></script>
     <script src="/js/perfil.js"></script>
 </body>
 

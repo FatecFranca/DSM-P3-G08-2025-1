@@ -29,5 +29,6 @@ app.use('/api/jogos', jogoRoutes)
 app.use('/', viewRoutes)
 
 app.use(express.static(path.resolve('./src/public')))
+app.use('/uploads', express.static(path.resolve('src/uploads')));
 
 export default app

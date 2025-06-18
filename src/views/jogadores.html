@@ -7,6 +7,7 @@
     <title>Duozinho</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -120,8 +121,8 @@
                     <select>
                         <option value="popular">Mais populares</option>
                         <option value="recent">Mais recentes</option>
-                        <option value="players">Jogadores ativos</option>
                     </select>
+                    <button class="create-post" id="createPostBtn">Criar Anúncio</button>
                 </div>
             </div>
 
@@ -130,6 +131,7 @@
     </div>
 
     <div class="modal-overlay" id="createPostModal">
+        <div id="notification" class="notification hidden"></div>
         <div class="modal">
             <div class="modal-header">
                 <h3>Criar Novo Anúncio</h3>
@@ -148,24 +150,29 @@
                             <label for="gameName">Jogo*</label>
                             <select id="gameName" required>
                                 <option value="">Selecione um jogo</option>
-                                <option value="cs2">Counter Strike 2</option>
-                                <option value="lol">League of Legends</option>
-                                <option value="valorant">Valorant</option>
-                                <option value="apex">Apex Legends</option>
-                                <option value="fortnite">Fortnite</option>
-                                <option value="dota2">Dota 2</option>
-                                <option value="overwatch">Overwatch 2</option>
+                                <option value="6850e16b50e2bead39b8d172">Counter Strike 2</option>
+                                <option value="683f434b02152892f034cd77">League of Legends</option>
+                                <option value="6850e17c50e2bead39b8d173">Valorant</option>
+                                <option value="6850e18b50e2bead39b8d174">Apex Legends</option>
+                                <option value="6850e19450e2bead39b8d175">Fortnite</option>
+                                <option value="6850e19d50e2bead39b8d176">Dota 2</option>
+                                <option value="6850e1a250e2bead39b8d177">Overwatch 2</option>
                             </select>
                         </div>
 
+                        <div class="form-group" id="perfilInfoContainer" style="display: none;">
+                            <label>Seu perfil nesse jogo:</label>
+                            <div id="perfilInfo" class="perfil-display"></div>
+                        </div>
+
                         <div class="form-group">
-                            <label for="skillLevel">Nível de Habilidade*</label>
+                            <label for="skillLevel">Nível de Habilidade Desejado*</label>
                             <select id="skillLevel" required>
                                 <option value="">Selecione um nível</option>
-                                <option value="beginner">Iniciante</option>
-                                <option value="intermediate">Intermediário</option>
-                                <option value="advanced">Avançado</option>
-                                <option value="pro">Profissional</option>
+                                <option value="Iniciante">Iniciante</option>
+                                <option value="Intermediário">Intermediário</option>
+                                <option value="Avançado">Avançado</option>
+                                <option value="Profissional">Profissional</option>
                             </select>
                         </div>
                     </div>
@@ -175,11 +182,11 @@
                             <label for="timeAvailable">Horário Disponível*</label>
                             <select id="timeAvailable" required>
                                 <option value="">Selecione um horário</option>
-                                <option value="morning">Manhã</option>
-                                <option value="afternoon">Tarde</option>
-                                <option value="night">Noite</option>
-                                <option value="late-night">Madrugada</option>
-                                <option value="flexible">Flexível</option>
+                                <option value="Manhã">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noite">Noite</option>
+                                <option value="Madrugada">Madrugada</option>
+                                <option value="Flexível">Flexível</option>
                             </select>
                         </div>
                     </div>
@@ -188,31 +195,6 @@
                         <label for="postDescription">Descrição*</label>
                         <textarea id="postDescription" rows="4" placeholder="Descreva o que você está procurando..."
                             required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Tags (Opcional)</label>
-                        <div class="tags-input-container">
-                            <span class="tag">Competitivo <span class="tag-close">×</span></span>
-                            <input type="text" class="tags-input" placeholder="Adicione tags separadas por vírgula">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Imagem do Anúncio (Opcional)</label>
-                        <div class="file-input-container">
-                            <label class="file-input-label">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="17 8 12 3 7 8"></polyline>
-                                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                                </svg>
-                                <span>Arraste e solte uma imagem ou clique para selecionar</span>
-                                <input type="file" class="file-input" id="imageUpload" accept="image/*">
-                            </label>
-                            <img src="" class="file-preview" id="imagePreview">
-                        </div>
                     </div>
 
                     <div class="form-actions">
@@ -240,9 +222,7 @@
     </footer>
 
     <script src="/js/publicacoes.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/scriptTeste.js"></script>
-    <script src="/js/modal.js"></script>
+    <script src="/js/theme-toggle.js"></script>
 </body>
 
 </html>
