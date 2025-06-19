@@ -1,3 +1,5 @@
+import showNotification from "./notificacao.js";
+
 const backgroundJogos = {
   'apex legends': 'apex_bg.jpg',
   'counter strike 2': 'cs_bg.jpg',
@@ -173,17 +175,6 @@ const cadastrarPublicacao = async () => {
     showNotification(`Erro: ${error.message}`, 'error');
   }
 };
-
-function showNotification(message, type = 'success', duration = 3000) {
-  const notification = document.getElementById('notification');
-  notification.textContent = message;
-  notification.className = `notification ${type}`;
-  notification.classList.remove('hidden');
-
-  setTimeout(() => {
-    notification.classList.add('hidden');
-  }, duration);
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   carregarPublicacoes();

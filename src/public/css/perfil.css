@@ -78,7 +78,7 @@ main {
     margin-top: 1rem;
 }
 
-.post-card {
+.post-card, .perfil-card {
     background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: var(--border-shadow);
@@ -87,23 +87,23 @@ main {
     position: relative;
 }
 
-.post-card:hover {
+.post-card:hover, .perfil-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.post-image {
+.post-image, .perfil-image {
     height: 150px;
     overflow: hidden;
 }
 
-.post-image img {
+.post-image img, .perfil-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.post-content {
+.post-content, .perfil-content {
     padding: 1rem;
 }
 
@@ -125,19 +125,19 @@ main {
     font-size: 0.9rem;
 }
 
-.post-content h3 {
+.post-content h3, .perfil-content h3 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
 }
 
-.post-description {
+.post-description, .perfil-description {
     color: var(--meta-color);
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.4;
 }
 
-.post-meta {
+.post-meta, .perfil-meta {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--border-color);
@@ -145,7 +145,7 @@ main {
     font-size: 0.85rem;
 }
 
-.post-meta div {
+.post-meta div, .perfil-meta div {
     display: flex;
     align-items: center;
 }
@@ -182,7 +182,7 @@ main {
     transition: all 0.3s ease;
 }
 
-.post-actions {
+.post-actions, .perfil-actions {
     top: 5px;
     padding: 0px 5px;
     width: 100%;

@@ -1,3 +1,5 @@
+import showNotification from "./notificacao.js";
+
 const form = document.getElementById('cadastroForm');
 const profilePictureInput = document.getElementById('profilePicture');
 const passwordInput = document.getElementById('password');
@@ -66,17 +68,6 @@ form.addEventListener('submit', async (e) => {
         showNotification(`Erro: ${error.message}`, 'error');
     }
 });
-
-function showNotification(message, type = 'success', duration = 3000) {
-    const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.className = `notification ${type}`;
-    notification.classList.remove('hidden');
-
-    setTimeout(() => {
-        notification.classList.add('hidden');
-    }, duration);
-}
 
 profilePictureInput.addEventListener('change', () => {
     if (profilePictureInput.files && profilePictureInput.files.length > 0) {

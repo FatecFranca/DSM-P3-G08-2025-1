@@ -1,3 +1,5 @@
+import showNotification from "./notificacao.js";
+
 const backgroundJogos = {
   'apex legends': 'apex_bg.jpg',
   'counter strike 2': 'cs_bg.jpg',
@@ -114,26 +116,26 @@ const carregarPerfisDoJogo = async () => {
       const logoFile = getImageFile(logos, jogoNome);
 
       container.innerHTML += `
-        <div class="post-card">
-          <div class="post-actions">
-            <button class="delete-perfil-btn" data-id="${perfil.id}" title="Excluir Perfil">
+        <div class="perfil-card" data-id="${perfil.id}">
+          <div class="perfil-actions">
+            <button class="delete-perfil-btn" title="Excluir Perfil">
               <span class="material-symbols-outlined">delete</span>
             </button>
-            <button class="edit-perfil-btn" data-id="${perfil.id}" title="Editar Perfil">
+            <button class="edit-perfil-btn" title="Editar Perfil">
               <span class="material-symbols-outlined">edit</span>
             </button>
           </div>
-          <div class="post-image">
+          <div class="perfil-image">
             <img src="/images/backgrounds/${backgroundFile}" alt="${jogoNome}">
           </div>
-          <div class="post-content">
+          <div class="perfil-content">
             <div class="logoJogo">
               <img src="/images/logos/${logoFile}">
               <h4>${jogoNome}</h4>
             </div>
             <h3>${perfil.nickname}</h3>
-            <p class="post-description">Personagem favorito: ${perfil.personagem_favorito || 'Não informado'}</p>
-            <div class="post-meta">
+            <p class="perfil-description">Personagem favorito: ${perfil.personagem_favorito || 'Não informado'}</p>
+            <div class="perfil-meta">
               <div class="skill-level">
                 <span>Nível: ${perfil.nivel || 'Não informado'}</span>
               </div>
@@ -148,14 +150,14 @@ const carregarPerfisDoJogo = async () => {
 
     document.querySelectorAll('.delete-perfil-btn').forEach(botao => {
       botao.addEventListener('click', (event) => {
-        const perfilId = event.currentTarget.getAttribute('data-id');
+        const perfilId = event.currentTarget.closest('.perfil-card').getAttribute('data-id');
         modalExclusao(perfilId, 'perfil');
       });
     });
 
     document.querySelectorAll('.edit-perfil-btn').forEach(btn => {
       btn.addEventListener('click', (event) => {
-        const perfilId = event.currentTarget.getAttribute('data-id');
+        const perfilId = event.currentTarget.closest('.perfil-card').getAttribute('data-id');
         modalEdicaoPerfilDoJogo(perfilId);
       });
     });
@@ -194,15 +196,15 @@ const carregarPublicacoes = async () => {
         const logoFile = getImageFile(logos, jogoNome);
 
         html.innerHTML += `
-          <div class="post-card">
-          <div class="post-actions">
-            <button class="delete-btn" data-id="${publicacao.id}" title="Excluir Perfil">
-              <span class="material-symbols-outlined">delete</span>
-            </button>
-            <button class="edit-btn" data-id="${publicacao.id}" title="Editar Perfil">
-              <span class="material-symbols-outlined">edit</span>
-            </button>
-          </div>
+          <div class="post-card" data-id="${publicacao.id}">
+            <div class="post-actions">
+              <button class="delete-btn" title="Excluir Perfil">
+                <span class="material-symbols-outlined">delete</span>
+              </button>
+              <button class="edit-btn" title="Editar Perfil">
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+            </div>
             <div class="post-image">
               <img src="/images/backgrounds/${backgroundFile}" alt="${publicacao.titulo || 'Sem título'}">
             </div>
@@ -231,14 +233,14 @@ const carregarPublicacoes = async () => {
 
     document.querySelectorAll('.delete-btn').forEach(botao => {
       botao.addEventListener('click', (event) => {
-        const postId = event.currentTarget.getAttribute('data-id');
-        modalExclusao(postId, 'publicacao');
+        const publicacaoId = event.currentTarget.closest('.post-card').getAttribute('data-id');
+        modalExclusao(publicacaoId, 'publicacao');
       });
     });
 
     document.querySelectorAll('.edit-btn').forEach(botao => {
       botao.addEventListener('click', (event) => {
-        const publicacaoId = event.currentTarget.getAttribute('data-id');
+        const publicacaoId = event.currentTarget.closest('.post-card').getAttribute('data-id');
         modalEdicaoPublicacao(publicacaoId);
       });
     });
@@ -718,7 +720,7 @@ const modalEdicaoPerfil = async () => {
 
           <div class="form-group">
             <label for="edit-discord">Discord</label>
-            <input type="text" id="edit-discord" required value="${usuario.discord}">
+            <input type="text" id="edit-discord" required value="${usuario.discord || ''}">
           </div>
 
           <div class="form-group">
@@ -778,17 +780,6 @@ const modalEdicaoPerfil = async () => {
   } catch (err) {
     showNotification(err.message, 'error');
   }
-};
-
-function showNotification(message, type = 'success', duration = 3000) {
-  const notification = document.getElementById('notification');
-  notification.textContent = message;
-  notification.className = `notification ${type}`;
-  notification.classList.remove('hidden');
-
-  setTimeout(() => {
-    notification.classList.add('hidden');
-  }, duration);
 };
 
 document.addEventListener('DOMContentLoaded', () => {

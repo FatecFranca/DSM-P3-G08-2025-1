@@ -1,3 +1,5 @@
+import showNotification from "./notificacao.js";
+
 const realizarLogin = async () => {
     const email = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
@@ -30,17 +32,6 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
     realizarLogin();
 });
-
-function showNotification(message, type = 'success', duration = 3000) {
-    const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.className = `notification ${type}`;
-    notification.classList.remove('hidden');
-
-    setTimeout(() => {
-        notification.classList.add('hidden');
-    }, duration);
-}
 
 const toggleButton = document.querySelector('.toggle-password');
 const passwordInput = document.getElementById('password');
