@@ -304,6 +304,13 @@ nav ul li a:hover {
     align-items: center;
 }
 
+.player-info span {
+  display: block;
+  max-width: 100%;
+  word-break: break-word;
+  white-space: normal;
+}
+
 .player-info img {
     width: 24px;
     height: 24px;
@@ -397,6 +404,7 @@ nav ul li a:hover {
         position: static;
         margin-left: 0;
         margin-bottom: 2rem;
+        margin-top: 65px;
     }
 
     .main-content {

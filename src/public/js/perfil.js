@@ -220,7 +220,7 @@ const carregarPublicacoes = async () => {
                   <span>${perfil.nickname}</span>
                 </div>
                 <div class="skill-level">
-                  <span>Nível: ${perfil.nivel || 'Não informado'}</span>
+                  <span>Nível desejado: ${publicacao.nivel_desejado || 'Não informado'}</span>
                 </div>
               </div>
             </div>

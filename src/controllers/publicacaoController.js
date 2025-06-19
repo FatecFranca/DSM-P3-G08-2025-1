@@ -47,7 +47,7 @@ controller.retrieveAll = async function (req, res) {
 
         const result = await prisma.publicacao.findMany({
             include,
-            orderBy: [{ data_criacao: 'asc' }],
+            orderBy: [{ data_criacao: 'desc' }],
         });
 
         res.send(result);
