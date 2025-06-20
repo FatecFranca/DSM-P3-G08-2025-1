@@ -30,7 +30,11 @@ controller.create = async function (req, res) {
 
 controller.retrieveOne = async function (req, res) {
     try {
+        const include = includeRelations(req.query, ['autor', 'perfil']);
+        include.perfil = { ...include.perfil, include: { jogo: true } } || { include: { jogo: true } };
+
         const publicacao = await prisma.publicacao.findUnique({
+            include,
             where: { id: req.params.id },
         });
         if (!publicacao) return res.status(404).json({ message: 'Publicação não encontrada' });
@@ -45,12 +49,12 @@ controller.retrieveAll = async function (req, res) {
         const include = includeRelations(req.query, ['autor', 'perfil']);
         include.perfil = { ...include.perfil, include: { jogo: true } } || { include: { jogo: true } };
 
-        const result = await prisma.publicacao.findMany({
+        const publicacoes = await prisma.publicacao.findMany({
             include,
             orderBy: [{ data_criacao: 'desc' }],
         });
 
-        res.send(result);
+        res.send(publicacoes);
     } catch (error) {
         console.error(error);
         res.status(500).send(error);

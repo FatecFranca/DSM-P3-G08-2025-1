@@ -5,30 +5,26 @@
     --text-color: #333333;
     --primary-color: #4D2BC9;
     --dark-purple: #432BAA;
-    --secondary-color: #6c757d;
     --card-bg: #f8f9fa;
     --border-color: #dee2e6;
-    --hover-color: #e9ecef;
-    --icon-filter: none;
     --success: #00b894;
     --hero-gradient: linear-gradient(to top right, #3722C3 0%, #6B51D2 64%, #9A6EFF 100%);
     --hover-button: #2b1d7a;
-    --border-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    --border-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --container-bg: #f8f8f8;
 }
 
 [data-theme="dark"] {
     --bg-color: #0E0E1A;
     --text-color: #ffffff;
     --primary-color: #4D2BC9;
-    --secondary-color: #adb5bd;
     --card-bg: #1e1e1e;
     --border-color: #2d2d2d;
-    --hover-color: #2d2d2d;
-    --icon-filter: invert(1) brightness(2) contrast(1.2);
     --success: #00b894;
     --hero-gradient: linear-gradient(to top right, #070311 0%, #270C65 55%, #321B88 75%, #3B2BA8 100%);
     --hover-button: #2b1d7a;
-    --border-shadow: 0 0 10px rgba(212, 212, 212, 0.1); 
+    --border-shadow: 0 0 10px rgba(212, 212, 212, 0.1);
+    --container-bg: #111120;
 }
 
 * {
@@ -38,6 +34,7 @@
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     text-decoration: none;
     outline: none;
+    word-break: break-word;
 }
 
 body {
@@ -186,6 +183,7 @@ main {
     justify-content: center;
     gap: 35px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .popular-games img {
@@ -224,33 +222,33 @@ footer p {
 }
 
 .notification {
-  position: fixed;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 14px 24px;
-  border-radius: 8px;
-  z-index: 10000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 90%;
-  text-align: center;
-  transition: opacity 0.3s ease;
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 24px;
+    border-radius: 8px;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 90%;
+    text-align: center;
+    transition: opacity 0.3s ease;
 }
 
 .notification.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 .notification.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .file-name-placeholder {
@@ -280,6 +278,7 @@ footer p {
     .hero {
         padding: 60px 20px;
         min-height: 50vh;
+        margin-top: 40px;
     }
 
     .hero h1 {

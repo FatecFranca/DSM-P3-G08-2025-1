@@ -66,10 +66,10 @@ const carregarPerfil = async () => {
           <h1>${usuario.nome}</h1>
         </div>
         <div class="profile-actions">
-          <button class="cta-button">
+          <button>
             <span class="material-symbols-outlined editarUsuario">edit</span>
           </button>
-          <button class="cta-button">
+          <button>
             <span class="material-symbols-outlined logout">logout</span>
           </button>
         </div>

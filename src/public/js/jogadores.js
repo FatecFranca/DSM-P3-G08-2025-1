@@ -43,6 +43,7 @@ const carregarPublicacoes = async () => {
       const backgroundFile = getImageFile(backgroundJogos, jogoNome);
       const logoFile = getImageFile(logos, jogoNome);
       html.innerHTML += `
+          <a href="/publicacoes/${publicacao.id}" class="post-card-link">
             <div class="post-card">
               <div class="post-image">
                 <img src="/images/backgrounds/${backgroundFile}" alt="${publicacao.titulo}">
@@ -66,6 +67,7 @@ const carregarPublicacoes = async () => {
                 </div>
               </div>
             </div>
+          </a>
           `;
     });
   } catch (error) {

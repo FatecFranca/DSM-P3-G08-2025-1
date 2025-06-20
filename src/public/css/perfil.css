@@ -78,7 +78,8 @@ main {
     margin-top: 1rem;
 }
 
-.post-card, .perfil-card {
+.post-card,
+.perfil-card {
     background-color: var(--bg-color);
     border-radius: 8px;
     box-shadow: var(--border-shadow);
@@ -87,23 +88,27 @@ main {
     position: relative;
 }
 
-.post-card:hover, .perfil-card:hover {
+.post-card:hover,
+.perfil-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.post-image, .perfil-image {
+.post-image,
+.perfil-image {
     height: 150px;
     overflow: hidden;
 }
 
-.post-image img, .perfil-image img {
+.post-image img,
+.perfil-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.post-content, .perfil-content {
+.post-content,
+.perfil-content {
     padding: 1rem;
 }
 
@@ -125,19 +130,22 @@ main {
     font-size: 0.9rem;
 }
 
-.post-content h3, .perfil-content h3 {
+.post-content h3,
+.perfil-content h3 {
     margin-bottom: 0.5rem;
     color: var(--primary-color);
 }
 
-.post-description, .perfil-description {
+.post-description,
+.perfil-description {
     color: var(--meta-color);
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.4;
 }
 
-.post-meta, .perfil-meta {
+.post-meta,
+.perfil-meta {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--border-color);
@@ -145,7 +153,8 @@ main {
     font-size: 0.85rem;
 }
 
-.post-meta div, .perfil-meta div {
+.post-meta div,
+.perfil-meta div {
     display: flex;
     align-items: center;
 }
@@ -156,10 +165,10 @@ main {
 }
 
 .player-info span {
-  display: block;
-  max-width: 100%;
-  word-break: break-word;
-  white-space: normal;
+    display: block;
+    max-width: 100%;
+    word-break: break-word;
+    white-space: normal;
 }
 
 .player-info img {
@@ -182,7 +191,8 @@ main {
     transition: all 0.3s ease;
 }
 
-.post-actions, .perfil-actions {
+.post-actions,
+.perfil-actions {
     top: 5px;
     padding: 0px 5px;
     width: 100%;
@@ -210,27 +220,13 @@ main {
     color: #e92828;
 }
 
-.edit-btn:hover, .edit-perfil-btn:hover {
+.edit-btn:hover,
+.edit-perfil-btn:hover {
     color: var(--primary-color);
 }
 
-#editPerfilModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 320px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+@media (max-width: 768px) {
+    main {
+        margin-top: 30px;
+    }
 }

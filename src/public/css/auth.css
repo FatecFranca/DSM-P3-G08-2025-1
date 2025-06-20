@@ -2,7 +2,8 @@
     font-size: 32px;
 }
 
-.cadastro-box, .login-box {
+.cadastro-box,
+.login-box {
     background: var(--bg-color);
     border-radius: 8px;
     padding: 32px;
@@ -11,19 +12,22 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#cadastroForm, #loginForm {
+#cadastroForm,
+#loginForm {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#cadastroForm p, #loginForm p {
+#cadastroForm p,
+#loginForm p {
     font-size: 16px;
     color: var(--text-color);
     text-align: center;
 }
 
-#cadastroForm p a, #loginForm p a {
+#cadastroForm p a,
+#loginForm p a {
     font-size: 16px;
     color: var(--primary-color);
 }
@@ -80,7 +84,9 @@
     filter: brightness(0) invert(1);
 }
 
-.cadastro-button, .upload-button, .login-button {
+.cadastro-button,
+.upload-button,
+.login-button {
     display: flex;
     width: 100%;
     padding: 12px;
@@ -95,7 +101,9 @@
     justify-content: center;
 }
 
-.cadastro-button:hover, .upload-button:hover, .login-button:hover {
+.cadastro-button:hover,
+.upload-button:hover,
+.login-button:hover {
     background-color: var(--dark-purple);
 }
 
@@ -138,5 +146,9 @@ button .material-symbols-outlined {
 
     .actions {
         margin-left: 0;
+    }
+
+    .hero {
+        margin-top: 40px;
     }
 }
