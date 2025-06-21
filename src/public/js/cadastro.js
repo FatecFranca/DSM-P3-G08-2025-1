@@ -1,4 +1,4 @@
-import showNotification from "./notificacao.js";
+import showNotification from "./showNotification.js";
 
 const form = document.getElementById('cadastroForm');
 const profilePictureInput = document.getElementById('profilePicture');

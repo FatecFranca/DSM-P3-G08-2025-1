@@ -53,6 +53,7 @@ nav ul li a:hover {
 .main-container {
     display: flex;
     max-width: 1400px;
+    min-height: calc(90vh - 120px);
     margin: 2rem auto;
     padding: 0;
     gap: 2rem;
@@ -422,6 +423,33 @@ nav ul li a:hover {
 
 .btn-voltar:hover {
     color: var(--dark-purple);
+}
+
+.footer-convite {
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.recusar-convite, .aceitar-convite {
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+}
+
+.opcoes-status {
+    display: flex;
+    gap: 25px;
+}
+
+.recusar-convite .material-symbols-outlined, .aceitar-convite .material-symbols-outlined {
+    font-size: 32px;
 }
 
 @media (max-width: 1024px) {

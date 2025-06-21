@@ -1,4 +1,4 @@
-import showNotification from "./notificacao.js";
+import showNotification from "./showNotification.js";
 
 const backgroundJogos = {
   'apex legends': 'apex_bg.jpg',
@@ -794,3 +794,7 @@ document.getElementById('perfilForm').addEventListener('submit', (e) => {
 });
 
 document.querySelector('.btnCriarPerfilDoJogo').addEventListener('click', modalCriacaoPerfilDoJogo());
+
+document.querySelector('.notification-btn').addEventListener('click', () => {
+  window.location.href = '/notificacoes';
+});

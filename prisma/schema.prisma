@@ -13,16 +13,18 @@ datasource db {
 }
 
 model PerfilDoJogo {
-  id                  String        @id @default(auto()) @map("_id") @db.ObjectId
-  jogador_id          String        @db.ObjectId
-  jogo_id             String        @db.ObjectId
-  nickname            String
-  personagem_favorito String?
-  nivel               String
-  frequencia_joga     String
-  jogador             Usuario       @relation("UsuarioPerfil", fields: [jogador_id], references: [id])
-  jogo                Jogo          @relation("JogoPerfil", fields: [jogo_id], references: [id])
-  publicacoes         Publicacao[]  @relation("PublicacaoPerfil")
+  id                   String         @id @default(auto()) @map("_id") @db.ObjectId
+  jogador_id           String         @db.ObjectId
+  jogo_id              String         @db.ObjectId
+  nickname             String
+  personagem_favorito  String?
+  nivel                String
+  frequencia_joga      String
+  jogador              Usuario        @relation("UsuarioPerfil", fields: [jogador_id], references: [id])
+  jogo                 Jogo           @relation("JogoPerfil", fields: [jogo_id], references: [id])
+  publicacoes          Publicacao[]   @relation("PublicacaoPerfil")
+  convites_enviados    Convite[]      @relation("ConviteRemetente")
+  convites_recebidos   Convite[]      @relation("ConviteDestinatario")
 }
 
 model Usuario {
@@ -34,20 +36,27 @@ model Usuario {
   foto               String?
   discord            String?
   perfis             PerfilDoJogo[] @relation("UsuarioPerfil")
-  convites_enviados  Convite[]      @relation("Remetente")
-  convites_recebidos Convite[]      @relation("Destinatario")
   publicacoes        Publicacao[]   @relation("PublicacaoAutor")
+  notificacoes       Notificacao[]  @relation
 }
 
 model Convite {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  remetente_id    String    @db.ObjectId
-  destinatario_id String    @db.ObjectId
-  status          String
-  data_envio      DateTime
-  time_id         String?   @db.ObjectId
-  remetente       Usuario   @relation("Remetente", fields: [remetente_id], references: [id])
-  destinatario    Usuario   @relation("Destinatario", fields: [destinatario_id], references: [id])
+  id                         String       @id @default(auto()) @map("_id") @db.ObjectId
+  perfil_remetente_id        String       @db.ObjectId
+  perfil_destinatario_id     String       @db.ObjectId
+  status                     String
+  data_envio                 DateTime
+  perfil_remetente           PerfilDoJogo @relation("ConviteRemetente", fields: [perfil_remetente_id], references: [id])
+  perfil_destinatario        PerfilDoJogo @relation("ConviteDestinatario", fields: [perfil_destinatario_id], references: [id])
+}
+
+model Notificacao {
+  id         String         @id @default(auto()) @map("_id") @db.ObjectId
+  usuario_id String         @db.ObjectId
+  mensagem   String
+  lida       Boolean        @default(false)
+  data       DateTime       @default(now())
+  usuario    Usuario        @relation(fields: [usuario_id], references: [id])
 }
 
 model Publicacao {

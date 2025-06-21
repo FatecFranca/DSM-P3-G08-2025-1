@@ -7,7 +7,16 @@ controller.create = async function (req, res) {
     try {
         const { titulo, autor_id, perfil_id, descricao, horario_disponivel, nivel_desejado, data_criacao } = req.body;
 
-        const dataPublicacao = data_criacao ? new Date(data_criacao) : new Date();
+        const autor = await prisma.usuario.findUnique({
+            where: { id: autor_id },
+            select: { discord: true }
+        });
+
+        if (!autor || !autor.discord || autor.discord.trim() === '') {
+            return res.status(400).json({
+                error: 'Você precisa cadastrar seu Discord antes de criar uma publicação.'
+            });
+        }
 
         const publicacao = await prisma.publicacao.create({
             data: {
@@ -17,7 +26,7 @@ controller.create = async function (req, res) {
                 descricao,
                 horario_disponivel,
                 nivel_desejado,
-                data_criacao: dataPublicacao
+                data_criacao: new Date()
             },
         });
 

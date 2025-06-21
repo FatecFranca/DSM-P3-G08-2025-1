@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" class="light-mode">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duozinho</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/publicacao.css">
     <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -35,23 +37,10 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Duozinho</h1>
-            <p>Encontre Colegas para Jogar Online</p>
-            <p>Descubra parceiros para suas partidas e aproveite ao máximo!</p>
-            <a class="cta-btn" href="/cadastro">Junte-se Agora</a>
-        </section>
-
-        <section class="popular-games">
-            <h2>Jogos Populares</h2>
-            <div class="games-list">
-                <img src="/images/backgrounds/cs_bg.jpg" alt="CSGO">
-                <img src="/images/backgrounds/lol_bg.jpg" alt="League of Legends">
-                <img src="/images/valorantIndex.jpg" alt="Valorant">
-            </div>
-        </section>
-    </main>
+    <div class="main-container">
+        <div id="notification" class="notification hidden"></div>
+        <main class="main-content"></main>
+    </div>
 
     <footer>
         <a href="/">
@@ -68,6 +57,7 @@
         <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
     </footer>
 
+    <script type="module" src="/js/notificacoes.js"></script>
     <script type="module" src="/js/iconeNotificacao.js"></script>
     <script src="/js/theme-toggle.js"></script>
 </body>

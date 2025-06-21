@@ -1,4 +1,4 @@
-import showNotification from "./notificacao.js";
+import showNotification from "./showNotification.js";
 
 const backgroundJogos = {
   'apex legends': 'apex_bg.jpg',
@@ -155,7 +155,7 @@ const cadastrarPublicacao = async () => {
 
   try {
     const publicacao = { perfil_id, autor_id, titulo, descricao, nivel_desejado, horario_disponivel };
-    
+
     const res = await fetch(`/api/publicacoes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -182,11 +182,23 @@ document.addEventListener('DOMContentLoaded', () => {
   carregarPublicacoes();
 });
 
-document.getElementById('createPostBtn').addEventListener('click', modal());
+document.getElementById('createPostBtn').addEventListener('click', () => {
+  if (localStorage.getItem('userId') !== null) modal();
+  else {
+    showNotification('Você precisa estar logado para criar uma publicação!', 'error');
+    setTimeout(() => {
+      window.location.href = '/login';
+    }, 3000);
+  };
+});
 
 document.getElementById('gameName').addEventListener('change', carregarPerfilDoJogoSelecionado);
 
 document.getElementById('submitButton').addEventListener('click', async (e) => {
   e.preventDefault();
   cadastrarPublicacao();
+});
+
+document.querySelector('.notification-btn').addEventListener('click', () => {
+  window.location.href = '/notificacoes';
 });

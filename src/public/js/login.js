@@ -1,4 +1,4 @@
-import showNotification from "./notificacao.js";
+import showNotification from "./showNotification.js";
 
 const realizarLogin = async () => {
     const email = document.getElementById('email').value;

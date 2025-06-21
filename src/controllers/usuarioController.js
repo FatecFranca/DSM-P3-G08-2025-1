@@ -5,7 +5,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import fs from 'fs/promises';
-import jwt from 'jsonwebtoken';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -129,8 +128,6 @@ controller.retrieveOne = async function (req, res) {
 controller.retrieveAll = async function (req, res) {
     try {
         const include = includeRelations(req.query, ['perfis', 'jogo']);
-
-        console.log(include)
 
         const result = await prisma.usuario.findMany({
             include,

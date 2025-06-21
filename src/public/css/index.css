@@ -235,13 +235,13 @@ footer p {
     transition: opacity 0.3s ease;
 }
 
-.notification.success {
+.notification.success, .aceitar-convite {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
-.notification.error {
+.notification.error, .recusar-convite {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
@@ -254,6 +254,26 @@ footer p {
 .file-name-placeholder {
     font-size: 14px;
     color: var(--text-color);
+}
+
+.notification-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 10px !important;
+  height: 10px !important;
+  background-color: var(--dark-purple);
+  padding: 2px;
+  border-radius: 50%;
+  display: block;
+  z-index: 10;
 }
 
 @media (max-width: 768px) {

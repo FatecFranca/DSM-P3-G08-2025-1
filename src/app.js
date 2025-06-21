@@ -11,6 +11,7 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 import conviteRoutes from './routes/conviteRoutes.js';
 import publicacaoRoutes from './routes/publicacaoRoutes.js';
 import jogoRoutes from './routes/jogoRoutes.js';
+import notificacaoRoutes from './routes/notificacaoRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,6 +31,7 @@ app.use('/api/usuarios', usuarioRoutes)
 app.use('/api/convites', conviteRoutes)
 app.use('/api/publicacoes', publicacaoRoutes)
 app.use('/api/jogos', jogoRoutes)
+app.use('/api/notificacoes', notificacaoRoutes)
 
 app.use('/', viewRoutes)
 
@@ -38,6 +40,10 @@ app.use('/uploads', express.static(path.resolve('src/uploads')));
 
 app.get('/publicacoes/:id', (req, res) => {
   res.sendFile(resolve(__dirname, 'views', 'publicacao.html'));
+});
+
+app.get('/notificacoes', (req, res) => {
+  res.sendFile(resolve(__dirname, 'views', 'notificacoes.html'));
 });
 
 export default app

@@ -5,14 +5,16 @@
 
 .main-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .publicacao {
     display: flex;
+    width: 75%;
     min-width: 300px;
-    width: 900px;
     background-color: var(--container-bg);
     border-radius: 8px;
     box-shadow: var(--border-shadow);
@@ -21,7 +23,7 @@
     padding: 25px;
 }
 
-.header-publicacao {
+.header-publicacao, .header-convite {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -84,6 +86,7 @@
     color: var(--success);
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .enviar-convite {
@@ -93,6 +96,7 @@
     border: 0px;
     padding: 6px 10px;
     width: 150px;
+    cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -107,7 +111,7 @@
 }
 
 @media (max-width: 500px) {
-    .header-publicacao {
+    .header-publicacao, .header-convite {
         flex-direction: column;
         gap: 15px;
         align-items: flex-start;
