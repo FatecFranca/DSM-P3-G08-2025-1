@@ -44,7 +44,10 @@ const carregarPublicacoes = async () => {
       const logoFile = getImageFile(logos, jogoNome);
       html.innerHTML += `
           <a href="/publicacoes/${publicacao.id}" class="post-card-link">
-            <div class="post-card">
+            <div class="post-card publicacao" 
+              data-jogo="${jogoNome}" 
+              data-nivel="${publicacao.nivel_desejado}" 
+              data-horario="${publicacao.horario_disponivel}">
               <div class="post-image">
                 <img src="/images/backgrounds/${backgroundFile}" alt="${publicacao.titulo}">
               </div>

@@ -80,10 +80,13 @@
                     <label for="game">Jogo</label>
                     <select id="game">
                         <option value="">Todos os jogos</option>
-                        <option value="cs2">Counter Strike 2</option>
-                        <option value="lol">League of Legends</option>
-                        <option value="valorant">Valorant</option>
-                        <option value="apex">Apex Legends</option>
+                        <option value="Counter Strike 2">Counter Strike 2</option>
+                        <option value="League of Legends">League of Legends</option>
+                        <option value="Valorant">Valorant</option>
+                        <option value="Apex Legends">Apex Legends</option>
+                        <option value="Fortnite">Fortnite</option>
+                        <option value="Dota 2">Dota 2</option>
+                        <option value="Overwatch 2">Overwatch 2</option>
                     </select>
                 </div>
 
@@ -91,10 +94,10 @@
                     <label for="skill">Nível de habilidade</label>
                     <select id="skill">
                         <option value="">Qualquer nível</option>
-                        <option value="beginner">Iniciante</option>
-                        <option value="intermediate">Intermediário</option>
-                        <option value="advanced">Avançado</option>
-                        <option value="pro">Profissional</option>
+                        <option value="Iniciante">Iniciante</option>
+                        <option value="Intermediário">Intermediário</option>
+                        <option value="Avançado">Avançado</option>
+                        <option value="Profissional">Profissional</option>
                     </select>
                 </div>
 
@@ -102,10 +105,10 @@
                     <label for="time">Horário disponível</label>
                     <select id="time">
                         <option value="">Qualquer horário</option>
-                        <option value="morning">Manhã</option>
-                        <option value="afternoon">Tarde</option>
-                        <option value="night">Noite</option>
-                        <option value="late-night">Madrugada</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                        <option value="Madrugada">Madrugada</option>
                     </select>
                 </div>
 
@@ -217,6 +220,29 @@
         <p>&copy; 2025 Duozinho. Todos os direitos reservados</p>
     </footer>
 
+    <script>
+        document.querySelector('.filter-group button').addEventListener('click', () => {
+            const jogoSelecionado = document.getElementById('game').value;
+            const nivelSelecionado = document.getElementById('skill').value;
+            const horarioSelecionado = document.getElementById('time').value;
+
+            document.querySelectorAll('.post-card.publicacao').forEach(pub => {
+                const jogo = pub.dataset.jogo;
+                const nivel = pub.dataset.nivel;
+                const horario = pub.dataset.horario;
+
+                const jogoOk = !jogoSelecionado || jogo === jogoSelecionado;
+                const nivelOk = !nivelSelecionado || nivel === nivelSelecionado;
+                const horarioOk = !horarioSelecionado || horario === horarioSelecionado;
+
+                if (jogoOk && nivelOk && horarioOk) {
+                    pub.parentElement.style.display = 'block';
+                } else {
+                    pub.parentElement.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script type="module" src="/js/jogadores.js"></script>
     <script type="module" src="/js/iconeNotificacao.js"></script>
     <script src="/js/theme-toggle.js"></script>

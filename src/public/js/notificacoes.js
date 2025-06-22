@@ -2,7 +2,7 @@ import showNotification from "./showNotification.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.querySelector('.main-content');
-    
+
     const usuarioId = localStorage.getItem('userId');
     if (!usuarioId) return;
 
@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const res = await fetch(`/api/convites/pendentes-detalhados/${usuarioId}`);
         const convites = await res.json();
+
+        const voltarBtn = document.createElement('button');
+        voltarBtn.classList.add('btn-voltar');
+        voltarBtn.innerHTML = `
+        <span class="material-symbols-outlined">arrow_back</span>
+        `;
+        container.appendChild(voltarBtn);
+        voltarBtn.addEventListener('click', () => window.history.back());
 
         if (convites.length === 0) {
             const msg = document.createElement('p');
@@ -31,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         convites.forEach(convite => {
             const perfil = convite.perfil_remetente;
-            const usuario = perfil.usuario;
+            const usuario = perfil.jogador;
             const jogoNome = perfil.jogo?.nome || 'Jogo Desconhecido';
             const logo = logos[jogoNome.toLowerCase()] || 'default.png';
 
@@ -41,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.innerHTML = `
                 <div class="header-publicacao">
                     <div class="autor-perfil">
-                        <img src="${usuario?.foto || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'}" alt="${perfil.nickname}">
+                        <img src="${usuario.foto || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'}" alt="${perfil.nickname}">
                         <h2>${perfil.nickname}</h2>
                     </div>
                     <div class="detalhes-perfil">

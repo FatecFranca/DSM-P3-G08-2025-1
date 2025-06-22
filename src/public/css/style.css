@@ -96,6 +96,7 @@ nav ul li a:hover {
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .games-list ul li img {

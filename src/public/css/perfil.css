@@ -1,4 +1,5 @@
 main {
+    min-height: calc(95vh - 120px);
     padding: 110px 50px 70px;
     display: flex;
     flex-direction: column;
